@@ -10,7 +10,7 @@ describe('Token', () => {
 
     beforeEach(async () => {
         const Token = await ethers.getContractFactory('Token');
-        token = await Token.deploy('Mic Token', '0XMIC', '1000000');
+        token = await Token.deploy('UAP Token', 'UAP', '1000000');
 
         accounts = await ethers.getSigners();
         deployer = accounts[0];
@@ -19,8 +19,8 @@ describe('Token', () => {
     })
 
     describe('Deployment', () => {
-        const name = 'Mic Token';
-        const symbol = '0XMIC';
+        const name = 'UAP Token';
+        const symbol = 'UAP';
         const decimals = '18';
         const totalSupply = '1000000';
 
