@@ -8,13 +8,13 @@ const tokens = (n) => {
 describe('Exchange', () => {
     let deployer, feeAccount, exchange;
 
-    const feePercent = 1;
+    const feePercent = 10;
 
     beforeEach(async () => {
         const Exchange = await ethers.getContractFactory('Exchange');
         const Token = await ethers.getContractFactory('Token');
 
-        token1 = await Token.deploy('UAP Token', 'UAP', '1000000');
+        token1 = await Token.deploy('Dapp Token', 'DAPP', '1000000');
         token2 = await Token.deploy('Mock Dai', 'mDAI', '1000000');
 
         accounts = await ethers.getSigners();
@@ -282,8 +282,8 @@ describe('Exchange', () => {
                     expect(await exchange.balanceOf(token1.address, feeAccount.address)).to.equal(0);
                     // Token get
                     expect(await exchange.balanceOf(token2.address, user1.address)).to.equal(tokens(1));
-                    expect(await exchange.balanceOf(token2.address, user2.address)).to.equal(tokens(0.99));
-                    expect(await exchange.balanceOf(token2.address, feeAccount.address)).to.equal(tokens(0.01));
+                    expect(await exchange.balanceOf(token2.address, user2.address)).to.equal(tokens(0.9));
+                    expect(await exchange.balanceOf(token2.address, feeAccount.address)).to.equal(tokens(0.1));
                 })
     
                 it('updates filled orders', async () => {

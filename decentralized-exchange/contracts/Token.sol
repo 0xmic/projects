@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 
 contract Token {
     string public name;
-    string public symbol = "UAP";
+    string public symbol = "DAPP";
     uint256 public decimals = 18;
     uint256 public totalSupply;
 
